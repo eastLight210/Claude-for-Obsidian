@@ -1,0 +1,563 @@
+/* Claude for Obsidian Plugin Styles */
+
+.claude-view-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+}
+
+.claude-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.claude-header-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.claude-messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.claude-message {
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.claude-message-user {
+  background-color: var(--background-secondary);
+  margin-left: 20px;
+}
+
+.claude-message-assistant {
+  background-color: var(--background-primary-alt);
+  margin-right: 20px;
+}
+
+.claude-message-role {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+
+.claude-response-time {
+  font-weight: 400;
+  color: var(--text-faint);
+}
+
+.claude-message-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.claude-message-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.claude-action-button {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--interactive-normal);
+  color: var(--text-normal);
+  border: none;
+}
+
+.claude-action-button:hover {
+  background-color: var(--interactive-hover);
+}
+
+.claude-input-container {
+  padding: 12px 16px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.claude-context-options {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.claude-context-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--background-secondary);
+  color: var(--text-muted);
+  border: none;
+}
+
+.claude-context-toggle.active {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.claude-input-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.claude-input-hint {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 6px;
+  text-align: right;
+}
+
+.claude-input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  font-size: 14px;
+  resize: none;
+  min-height: 40px;
+  max-height: 120px;
+}
+
+.claude-input:focus {
+  outline: none;
+  border-color: var(--interactive-accent);
+}
+
+.claude-send-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.claude-send-button:hover {
+  background-color: var(--interactive-accent-hover);
+}
+
+.claude-send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.claude-send-button-stop {
+  background-color: var(--color-red);
+}
+
+.claude-send-button-stop:hover {
+  background-color: var(--color-red);
+  opacity: 0.9;
+}
+
+.claude-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  color: var(--text-muted);
+  background-color: var(--background-secondary);
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+.claude-loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--background-modifier-border);
+  border-top-color: var(--interactive-accent);
+  border-radius: 50%;
+  animation: claude-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+.claude-loading-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.claude-loading-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-left: auto;
+}
+
+.claude-loading-pulse {
+  width: 6px;
+  height: 6px;
+  background-color: var(--interactive-accent);
+  border-radius: 50%;
+  animation: claude-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes claude-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes claude-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.claude-error {
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background-color: var(--background-modifier-error);
+  color: var(--text-error);
+}
+
+.claude-status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+.claude-status-ready {
+  background-color: var(--color-green);
+}
+
+.claude-status-error {
+  background-color: var(--color-red);
+}
+
+.claude-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+}
+
+.claude-empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.claude-empty-state-text {
+  font-size: 14px;
+  max-width: 200px;
+}
+
+/* Permission Modal Styles */
+.claude-permission-modal {
+  padding: 20px;
+}
+
+.claude-permission-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.claude-permission-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.claude-permission-icon-low {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+.claude-permission-icon-medium {
+  background-color: var(--color-yellow);
+  color: var(--text-normal);
+}
+
+.claude-permission-icon-high {
+  background-color: var(--color-red);
+  color: white;
+}
+
+.claude-permission-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.claude-permission-info {
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: var(--background-secondary);
+  border-radius: 8px;
+}
+
+.claude-permission-tool-name {
+  margin-bottom: 8px;
+}
+
+.claude-permission-tool-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-radius: 4px;
+  font-family: var(--font-monospace);
+  font-size: 13px;
+}
+
+.claude-permission-description {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.claude-permission-details {
+  margin-top: 12px;
+  padding: 8px;
+  background-color: var(--background-primary);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.claude-permission-details pre {
+  margin: 0;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.claude-permission-risk {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.claude-permission-risk-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.claude-permission-risk-low {
+  background-color: rgba(var(--color-blue-rgb), 0.2);
+  color: var(--color-blue);
+}
+
+.claude-permission-risk-medium {
+  background-color: rgba(var(--color-yellow-rgb), 0.2);
+  color: var(--color-yellow);
+}
+
+.claude-permission-risk-high {
+  background-color: rgba(var(--color-red-rgb), 0.2);
+  color: var(--color-red);
+}
+
+.claude-permission-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.claude-permission-remember input {
+  margin: 0;
+}
+
+.claude-permission-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.claude-permission-btn {
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+.claude-permission-btn-deny {
+  background-color: var(--background-modifier-border);
+  color: var(--text-normal);
+}
+
+.claude-permission-btn-deny:hover {
+  background-color: var(--background-modifier-border-hover);
+}
+
+.claude-permission-btn-allow {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.claude-permission-btn-allow:hover {
+  background-color: var(--interactive-accent-hover);
+}
+
+/* Tool use indicator in message */
+.claude-tool-use {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  background-color: var(--background-secondary);
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.claude-tool-use-icon {
+  color: var(--text-muted);
+}
+
+.claude-tool-use-name {
+  font-weight: 500;
+}
+
+.claude-tool-use-status {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+.claude-tool-use-status-pending {
+  color: var(--color-yellow);
+}
+
+.claude-tool-use-status-approved {
+  color: var(--color-green);
+}
+
+.claude-tool-use-status-denied {
+  color: var(--color-red);
+}
+
+.claude-tool-status-container {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Permission Denials UI */
+.claude-permission-denials {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: rgba(var(--color-yellow-rgb), 0.1);
+  border: 1px solid var(--color-yellow);
+  border-radius: 8px;
+}
+
+.claude-denials-header {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--text-normal);
+}
+
+.claude-denial-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-color: var(--background-primary);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.claude-denial-item:last-child {
+  margin-bottom: 0;
+}
+
+.claude-denial-tool-name {
+  font-family: var(--font-monospace);
+  font-size: 13px;
+  color: var(--text-normal);
+}
+
+.claude-denial-allow-btn {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  cursor: pointer;
+}
+
+.claude-denial-allow-btn:hover {
+  background-color: var(--interactive-accent-hover);
+}
+
+.claude-denial-allow-btn:disabled {
+  cursor: default;
+}
+
+.claude-denial-allow-btn.allowed {
+  background-color: var(--color-green);
+}
+
+.claude-retry-container {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.claude-retry-btn {
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  cursor: pointer;
+}
+
+.claude-retry-btn:hover:not(:disabled) {
+  background-color: var(--interactive-accent-hover);
+}
+
+.claude-retry-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
