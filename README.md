@@ -103,7 +103,7 @@ This plugin works without any MCP servers, but connecting an Obsidian MCP server
 }
 ```
 
-See [mcp-obsidian](https://github.com/mcp-obsidian/mcp-obsidian) for setup instructions.
+Requires [Obsidian Local REST API](https://github.com/coddingtonbear/obsidian-local-rest-api) plugin. See [mcp-obsidian](https://github.com/smithery-ai/mcp-obsidian) for setup instructions.
 
 ## How It Works
 
