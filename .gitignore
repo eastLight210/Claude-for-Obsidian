@@ -23,3 +23,7 @@ node_modules/
 
 # OS specific
 .DS_Store
+
+# Dev docs
+plan.md
+prd.md
