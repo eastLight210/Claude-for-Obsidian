@@ -59,6 +59,52 @@ Access settings via Settings → Claude for Obsidian:
 - **System Prompt**: Custom instructions for Claude
 - **Auto-approve Read Tools**: Automatically approve read-only operations
 
+## Obsidian MCP Integration (Optional)
+
+This plugin works without any MCP servers, but connecting an Obsidian MCP server enables Claude to directly search and read files across your entire vault.
+
+**Without MCP**: Claude can only see documents you explicitly send via the context options.
+
+**With MCP**: Claude can search your vault, read any note, and find connections between documents.
+
+### Setup with Obsidian MCP Tools
+
+1. Install [Obsidian MCP Tools](https://github.com/jacksteamdev/obsidian-mcp-tools) plugin in Obsidian
+2. Enable the plugin and configure it
+3. Add the MCP server to your Claude settings (`~/.claude.json`):
+
+```json
+{
+  "mcpServers": {
+    "obsidian": {
+      "command": "npx",
+      "args": ["-y", "obsidian-mcp-tools"],
+      "env": {
+        "OBSIDIAN_VAULT_PATH": "/path/to/your/vault"
+      }
+    }
+  }
+}
+```
+
+### Alternative: mcp-obsidian (Python)
+
+```json
+{
+  "mcpServers": {
+    "mcp-obsidian": {
+      "command": "uvx",
+      "args": ["mcp-obsidian"],
+      "env": {
+        "OBSIDIAN_API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+See [mcp-obsidian](https://github.com/mcp-obsidian/mcp-obsidian) for setup instructions.
+
 ## How It Works
 
 This plugin spawns Claude Code CLI in print mode (`-p`) with streaming JSON output. It:
